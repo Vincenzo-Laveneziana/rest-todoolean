@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Titolo e icona -->
-  <title>Titolo</title>
+  <title>Todoolean</title>
   <link rel="icon" href="">
 
   <!-- Font -->
@@ -21,6 +21,30 @@
 
 <body>
 
+  <div id="app">
+
+    <header>
+      <h1>Todoolean</h1>
+    </header>
+
+    <main>
+
+      <div class="write">
+        <input id="new-todo" type="text" placeholder="Inserisci una nuova todo">
+        <button id="new-todo-btn">+</button>
+      </div>
+
+      <div>
+        <ul class="list-todo" >
+          <li class="todo">
+            lorem ipsum dolor sit am
+            <span class="remove">X</span>
+          </li>
+        </ul>
+      </div>
+    </main>
+
+  </div>
 
 
 
@@ -30,13 +54,10 @@
 
   <!-- Template -->
   <script id="handlebars-template" type="text/x-handlebars-template">
-    <!--   linea guida
-    <div>
-      <div class="message {{userClass}}">
-      <div class="message-text">{{testo}}</div>
-      <div class="message-time">{{ora}}</div>
-    </div> 
-    -->
+    <li class="todo">
+      {{todo}}
+      <span class="remove" data-id="{{id}}">X</span>
+    </li>
   </script>
 
   <!-------------------- JS -------------------->
