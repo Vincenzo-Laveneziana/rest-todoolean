@@ -30,8 +30,8 @@ $(document).ready(function (){
     
   }) */
 
-  listTodo.on("click","remove", function(){
-    console.log(idremove);
+  $(document).on("click",".remove", function(){
+    
     
     
     deleteTodo($(this),urlApi, listTodo, template);
@@ -91,14 +91,7 @@ function printAllTodo(urlApi, listTodo, template){
     
         listTodo.append(template(context))
       })
-       listTodo.on('click',".remove", () =>{
-      var idremove = $(this).data("id");
-      console.log(idremove);
       
-      
-      deleteTodo(idremove,urlApi, listTodo, template);
-
-      })
     })
     .fail(error =>{
       console.log("Si è verificato un errore " + error.status);
@@ -108,8 +101,10 @@ function printAllTodo(urlApi, listTodo, template){
 //eleminina todo seguente (cruD)
 function deleteTodo(self, urlApi, listTodo, template){
   var idremove = self.data("id");
-
+  console.log(idremove);
   
+
+
   var settings = {
     url: urlApi + "/" + idremove,
     method: "DELETE"
