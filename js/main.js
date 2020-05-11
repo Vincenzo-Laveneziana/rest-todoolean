@@ -14,16 +14,28 @@ $(document).ready(function (){
   var urlApi = "http://157.230.17.132:3008/todos";
 
 
-  printAllTodo(urlApi, listTodo, template)
+  printAllTodo(urlApi, listTodo, template);
 
 
   btn.click(() =>{
-    addTodo(input, urlApi, listTodo, template)
+    addTodo(input, urlApi, listTodo, template);
   })
 
+ /*  listTodo.on('click',".remove", function()({
+    var idremove = $(this).data("id");
+    console.log(idremove);
+    
+    
+    deleteTodo(idremove,urlApi, listTodo, template);
+    
+  }) */
 
-
-
+  listTodo.on("click","remove", function(){
+    console.log(idremove);
+    
+    
+    deleteTodo($(this),urlApi, listTodo, template);
+  })
 
 });
 
@@ -50,7 +62,7 @@ function addTodo(input, urlApi, listTodo, template){
   .done(() =>{
     printAllTodo(urlApi, listTodo, template)
   })
-  .fail((error)=>{
+  .fail(error =>{
     console.log("Si è verificato un errore " + error.status);
   })
   
@@ -71,7 +83,7 @@ function printAllTodo(urlApi, listTodo, template){
     .done(dati => {
 
       dati.forEach(dati => {
-    
+
         var context = {
           todo: dati.text,
           id: dati.id
@@ -79,10 +91,36 @@ function printAllTodo(urlApi, listTodo, template){
     
         listTodo.append(template(context))
       })
+       listTodo.on('click',".remove", () =>{
+      var idremove = $(this).data("id");
+      console.log(idremove);
       
+      
+      deleteTodo(idremove,urlApi, listTodo, template);
+
+      })
     })
-    .fail((error)=>{
+    .fail(error =>{
       console.log("Si è verificato un errore " + error.status);
     })
+}
+
+//eleminina todo seguente (cruD)
+function deleteTodo(self, urlApi, listTodo, template){
+  var idremove = self.data("id");
+
+  
+  var settings = {
+    url: urlApi + "/" + idremove,
+    method: "DELETE"
+  }
+
+  $.ajax(settings)
+  .done(() =>{
+    printAllTodo(urlApi, listTodo, template);
+  })
+  .fail(error =>{
+    console.log("Si è verificato un errore " + error.status);
+  })
 }
 
