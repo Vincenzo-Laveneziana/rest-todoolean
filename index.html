@@ -21,39 +21,32 @@
 
 <body>
 
-  <div id="app">
+  <header class="flex flex_center_center">
+    <h1>Todo</h1>
+  </header>
 
-    <header>
-      <h1>Todoolean</h1>
-    </header>
+  <main>
 
-    <main>
-
+    <div class="container flex align_center">
       <div class="write">
         <input id="new-todo" type="text" placeholder="Inserisci una nuova todo">
-        <button id="new-todo-btn">+</button>
+        <i id="new-todo-btn" class="fas fa-plus"></i>
       </div>
-
-      <div>
-        <ul class="list-todo" >
+      
+      <ul class="list-todo" >
           
-        </ul>
-      </div>
-    </main>
+      </ul>
+    </div>
+    
 
-  </div>
-
-
-
-
-
-                                                                                                           
+  </main>
+                                      
 
   <!-- Template -->
   <script id="handlebars-template" type="text/x-handlebars-template">
     <li class="todo">
-      {{todo}}
-      <span class="remove" data-id="{{ id }}">X</span>
+      <p>{{todo}}</p>
+      <span class="remove" data-id="{{ id }}"><i class="fas fa-times"></i></span>
     </li>
   </script>
 

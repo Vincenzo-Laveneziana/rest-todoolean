@@ -1,3 +1,5 @@
+/* General */
+
 *{
   margin: 0;
   padding: 0;
@@ -6,15 +8,128 @@
 
 body{
   font-family: 'Open Sans', sans-serif;
-  padding: 50px;
+  background: #181A1B;
+  height: 100vh;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.list-todo{
-  margin-top: 20px;
-  list-style: none;
+
+/* Utilies */
+
+.flex{
+  display: flex;
 }
 
-.todo span{
+.justify_center{
+  justify-content: center;
+}
+
+.align_center{
+  align-items: center;
+}
+
+.flex_center_center{
+  align-items: center;
+  justify-content: center;
+}
+
+.container{
+  max-width: 1200px;
+  padding: 20px 0;
+  flex-direction: column;
+}
+
+.line-through span {
+  text-decoration: line-through;
+  color: #b93b3b;
+}
+
+.completed{
+  color: green;
+  text-decoration: line-through;
+}
+
+
+/* Header */
+header{
+  height: 50px;
+  margin: 20px 0;
+  width: 100%;
+}
+
+header img{
+  width: 50px;
+  margin-right: 10px;
+}
+
+header h1{
+  font-size: 40px;
+}
+/* Main */
+.container input{
+  width: 600px;
+  padding: 15px 40px 15px 15px;
+  margin: 20px 0 50px;
+  background: #181A1B;
+  color: white;
+  border: 1px solid #d8d8d8;
+  border-radius: 10px;
+  outline: none;
+  font-weight: bold;
+}
+
+#new-todo-btn{
+  transform: translateX(-40px);
+  cursor: pointer;
+}
+
+.container input::placeholder{
+  color: white;
+}
+
+.container input:hover,
+.container input:focus{
+  background: rgba(46, 46, 46, 0.4);
+}
+
+.container ul{
+  width: 500px;
+  padding: 20px;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #d8d8d8;
+  border-radius: 10px;
+}
+
+.container ul li{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgb(133, 133, 133);
+  user-select:none;
+  overflow-wrap: break-word;
+}
+
+.container ul li p{
+  width: 430px;
+}
+
+.container ul li:last-child{
+  border-bottom: none;
+}
+
+.container ul li i{
+  color: rgba(134, 134, 134, 0.5);
+  transition: color 0.5s;
+}
+
+.container ul li i:hover{
   cursor: pointer;
   color: red;
 }
+
