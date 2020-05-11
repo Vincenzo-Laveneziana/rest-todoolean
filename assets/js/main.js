@@ -1,5 +1,4 @@
 $(document).ready(function (){
-  console.log("js -- jquery is ready");
 
   //handlebars
   var source = $("#handlebars-template").html();
@@ -16,14 +15,21 @@ $(document).ready(function (){
 
   printAllTodo(urlApi, listTodo, template);
 
+  input.keypress((e)=> {
+    if (e.which == 13){
+      if(input.val() !== ""){
+        addTodo(input, urlApi, listTodo, template);
+      }
+      
+    }
+  })
 
   btn.click(() =>{
     addTodo(input, urlApi, listTodo, template);
   })
 
-
   //l'arrow function non associa i propri this
-  $(document).on("click",".remove", function(){
+  listTodo.on("click",".remove", function(){
     deleteTodo($(this),urlApi, listTodo, template);
   })
 
